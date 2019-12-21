@@ -1,6 +1,17 @@
 body{
   max-width: 100%;
+  overflow: hidden;
 }
+table{
+margin-left: 23%;
+}
+td{
+  background-color: black;
+  padding: 0;
+  width: 41px;
+  height: 41px;
+}
+
 .container{
 width: 1288px;
 height: 713px;
@@ -11,6 +22,6 @@ height: 713px;
   height: 31px;
 background-color: black;
 }
-.blank{
-  background-color: white
+#l12{
+  background-color: white;
 }
