@@ -84,4 +84,12 @@ for (var i = 0; i < 23; i++) {
   document.getElementById('v' + ii).setAttribute("class", x+10 + "," + cy );
   document.getElementById('w' + ii).setAttribute("class", x+11 + "," + cy );
 }
+//for (var i = 0; i < 2000; i++) {
+//Math.round(Math.random() * 100)
+//document.getElementById("coorddump").classList.add(Math.round(Math.random() * 100) + "," + Math.round(Math.random() * 100));
+//}
+for (var i = 0; i < 100; i++) {
+
+
+}
 }
