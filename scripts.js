@@ -3,6 +3,7 @@ localStorage.setItem("x", 0);
 localStorage.setItem("y", 0);
 var tree = [];
 var wall = [];
+var floor = [];
 } else {
   var tree = JSON.parse(localStorage.getItem("tree"));
   var wall = JSON.parse(localStorage.getItem("wall"));
@@ -12,10 +13,6 @@ var y = Number(localStorage.getItem("y"));
 var sheet = (function() {
   // Create the <style> tag
   var style = document.createElement("style");
-
-  // Add a media (and/or media query) here if you'd like!
-  // style.setAttribute("media", "screen")
-  // style.setAttribute("media", "only screen and (max-width : 1024px)")
 
   // WebKit hack :(
   style.appendChild(document.createTextNode(""));
@@ -30,7 +27,7 @@ sheet.addRule("#l12", "background: white;", 0);
 //sheet.addRule(".x-3y4", "background: #008751;", 0);
 
 if(localStorage.getItem("tree") == null){
-for (var i = 0; i < 5000; i++) {
+for (var i = 0; i < 500; i++) {
   var treex = Math.round(Math.random() * 500);
   var treey = Math.round(Math.random() * 500);
   tree[tree.length] = "x" + treex + "y" + treey;
@@ -92,8 +89,8 @@ for (var i = 0; i < 5000; i++) {
   tree[tree.length] = "x" + treex + "y" + treey;
 }
 for (var i = 0; i < 2;  i++) {
-  var wallx = Math.round(Math.random() * 500);
-  var wally = Math.round(Math.random() * 500);
+  var wallx = Math.round(Math.random() * 10);
+  var wally = Math.round(Math.random() * 10);
   wall[wall.length] = "x" + wallx + "y" + wally;
   var walll = Math.round(Math.random() * 30 + 30);
   var walle = walll/2 + 3;
@@ -104,7 +101,12 @@ for (var i = 0; i < 2;  i++) {
   for (var i = 0; i < walll; i++) {
     wallx = wallx + 1;
     wall[wall.length] = "x" + wallx + "y" + wally;
+    var floory = wally;
+    for (var p = 2; i < walll; p++) {
+      floory++
+      floor[floor.length] = "x" + wallx + "y" + floory;
   }
+}
   for (var i = 0; i < walll; i++) {
     wally = wally + 1;
     wall[wall.length] = "x" + wallx + "y" + wally;
@@ -196,13 +198,14 @@ for (var i = 0; i < 2;  i++) {
     wall[wall.length] = "x" + wallx + "y" + wally;
   }
 }
-}
-for (var i = 0; i < tree.length; i++) {
-  sheet.addRule("." + tree[i], "background: green;", 0);
 }
 for (var i = 0; i < wall.length; i++) {
   sheet.addRule("." + wall[i], "background: grey;", 0);
 }
+for (var i = 0; i < tree.length; i++) {
+  sheet.addRule("." + tree[i], "background: green;", 0);
+}
+
 
 localStorage.setItem("tree", JSON.stringify(tree));
 localStorage.setItem("wall", JSON.stringify(wall));
