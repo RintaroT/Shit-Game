@@ -30,7 +30,7 @@ sheet.addRule("#l12", "background: white;", 0);
 //sheet.addRule(".x-3y4", "background: #008751;", 0);
 
 if(localStorage.getItem("tree") == null){
-for (var i = 0; i < 500; i++) {
+for (var i = 0; i < 5000; i++) {
   var treex = Math.round(Math.random() * 500);
   var treey = Math.round(Math.random() * 500);
   tree[tree.length] = "x" + treex + "y" + treey;
