@@ -1,8 +1,14 @@
-
-var x = 0;
-var y = 0;
+if(localStorage.getItem("y") == null){
+localStorage.setItem("x", 0);
+localStorage.setItem("y", 0);
 var tree = [];
 var wall = [];
+} else {
+  var tree = JSON.parse(localStorage.getItem("tree"));
+  var wall = JSON.parse(localStorage.getItem("wall"));
+}
+var x = Number(localStorage.getItem("x"));
+var y = Number(localStorage.getItem("y"));
 var sheet = (function() {
   // Create the <style> tag
   var style = document.createElement("style");
@@ -23,7 +29,8 @@ document.getElementById("body").onload = sheet;
 sheet.addRule("#l12", "background: white;", 0);
 //sheet.addRule(".x-3y4", "background: #008751;", 0);
 
-for (var i = 0; i < 5000; i++) {
+if(localStorage.getItem("tree") == null){
+for (var i = 0; i < 500; i++) {
   var treex = Math.round(Math.random() * 500);
   var treey = Math.round(Math.random() * 500);
   tree[tree.length] = "x" + treex + "y" + treey;
@@ -83,9 +90,6 @@ for (var i = 0; i < 5000; i++) {
   treey--;
   treey--;
   tree[tree.length] = "x" + treex + "y" + treey;
-}
-for (var i = 0; i < tree.length; i++) {
-  sheet.addRule("." + tree[i], "background: green;", 0);
 }
 for (var i = 0; i < 2;  i++) {
   var wallx = Math.round(Math.random() * 500);
@@ -192,10 +196,16 @@ for (var i = 0; i < 2;  i++) {
     wall[wall.length] = "x" + wallx + "y" + wally;
   }
 }
+}
+for (var i = 0; i < tree.length; i++) {
+  sheet.addRule("." + tree[i], "background: green;", 0);
+}
 for (var i = 0; i < wall.length; i++) {
   sheet.addRule("." + wall[i], "background: grey;", 0);
 }
 
+localStorage.setItem("tree", JSON.stringify(tree));
+localStorage.setItem("wall", JSON.stringify(wall));
 
 document.getElementById("body").onload = function grid() {
   for (var i = 0; i < 23; i++) {
@@ -314,6 +324,8 @@ document.getElementById("body").onkeypress = function move(event) {
     var f = window.getComputedStyle(document.getElementsByClassName(up)[0]).getPropertyValue('background-Color');
     if (f !== "rgb(0, 128, 0)" && f !== "rgb(128, 128, 128)") {
       y++
+      localStorage.setItem("x", x);
+      localStorage.setItem("y", y);
     }
   }
   if (key == 100) {
@@ -322,6 +334,8 @@ document.getElementById("body").onkeypress = function move(event) {
     var f = window.getComputedStyle(document.getElementsByClassName(right)[0]).getPropertyValue('background-Color');
     if (f !== "rgb(0, 128, 0)" && f !== "rgb(128, 128, 128)") {
       x++
+      localStorage.setItem("x", x);
+      localStorage.setItem("y", y);
     }
   }
   if (key == 97) {
@@ -330,6 +344,8 @@ document.getElementById("body").onkeypress = function move(event) {
     var f = window.getComputedStyle(document.getElementsByClassName(left)[0]).getPropertyValue('background-Color');
     if (f !== "rgb(0, 128, 0)" && f !== "rgb(128, 128, 128)") {
       x--
+      localStorage.setItem("x", x);
+      localStorage.setItem("y", y);
     }
   }
   if (key == 115) {
@@ -338,6 +354,8 @@ document.getElementById("body").onkeypress = function move(event) {
     var f = window.getComputedStyle(document.getElementsByClassName(down)[0]).getPropertyValue('background-Color');
     if (f !== "rgb(0, 128, 0)" && f !== "rgb(128, 128, 128)") {
    y--
+   localStorage.setItem("x", x);
+   localStorage.setItem("y", y);
     }
   }
   for (var i = 0; i < 23; i++) {
@@ -390,4 +408,8 @@ document.getElementById("body").onkeypress = function move(event) {
     document.getElementById('w' + ii).setAttribute("class", "x" + xw + "y" + cy);
   }
   document.getElementById("l12").style.backgroundColor = 'white';
+}
+function cleargame() {
+  localStorage.clear();
+  location.reload();
 }
