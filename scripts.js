@@ -101,11 +101,6 @@ for (var i = 0; i < 2;  i++) {
   for (var i = 0; i < walll; i++) {
     wallx = wallx + 1;
     wall[wall.length] = "x" + wallx + "y" + wally;
-    var floory = wally;
-    for (var p = 2; i < walll; p++) {
-      floory++
-      floor[floor.length] = "x" + wallx + "y" + floory;
-  }
 }
   for (var i = 0; i < walll; i++) {
     wally = wally + 1;
