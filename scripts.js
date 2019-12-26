@@ -6,10 +6,10 @@ if (localStorage.getItem("y") == null) {
   var center = [];
   var centerrightx = [];
   var centerrighty = [];
-  var centeruptx = [];
+  var centerupx = [];
   var centerupy = [];
   var centerdownx = [];
-  var centerdownty = [];
+  var centerdowny = [];
   var centerleftx = [];
   var centerlefty = [];
 } else {
@@ -85,228 +85,232 @@ if (localStorage.getItem("wall") == null) {
   floory = floory + 2;
   floor[floor.length] = "x" + floorx + "y" + floory;
 
-  centerx = 0;
-  centery = 0;
-
+  counterx = 0;
+  countery = 0;
   for (var i = 0; i < 10; i++) {
-    centerx += 17;
-    centerx[centerx.length] = centerx;
-    centery[centery.length] = centery;
+    counterx = counterx + 17;
+    countery = 0;
+    centerrightx[centerrightx.length] = counterx;
+    centerrighty[centerrighty.length] = countery;
+
   }
+
+
+
 }
-  for (var i = 0; i < floor.length; i++) {
-    sheet.addRule("." + floor[i], "background: black;", 0);
+for (var i = 0; i < floor.length; i++) {
+  sheet.addRule("." + floor[i], "background: black;", 0);
+}
+for (var i = 0; i < wall.length; i++) {
+  sheet.addRule("." + wall[i], "background: grey;", 0);
+}
+
+localStorage.setItem("wall", JSON.stringify(wall));
+
+document.getElementById("body").onload = function grid() {
+  for (var i = 0; i < 23; i++) {
+    var ii = i + 1;
+    var table = document.getElementById("grid");
+
+    var row = table.insertRow(-1);
+
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+    var cell6 = row.insertCell(5);
+    var cell7 = row.insertCell(6);
+    var cell8 = row.insertCell(7);
+    var cell9 = row.insertCell(8);
+    var cell10 = row.insertCell(9);
+    var cell11 = row.insertCell(10);
+    var cell12 = row.insertCell(11);
+    var cell13 = row.insertCell(12);
+    var cell14 = row.insertCell(13);
+    var cell15 = row.insertCell(14);
+    var cell16 = row.insertCell(15);
+    var cell17 = row.insertCell(16);
+    var cell18 = row.insertCell(17);
+    var cell19 = row.insertCell(18);
+    var cell20 = row.insertCell(19);
+    var cell21 = row.insertCell(20);
+    var cell22 = row.insertCell(21);
+    var cell23 = row.insertCell(22);
+
+    cell1.setAttribute("id", "a" + ii);
+    cell2.setAttribute("id", "b" + ii);
+    cell3.setAttribute("id", "c" + ii);
+    cell4.setAttribute("id", "d" + ii);
+    cell5.setAttribute("id", "e" + ii);
+    cell6.setAttribute("id", "f" + ii);
+    cell7.setAttribute("id", "g" + ii);
+    cell8.setAttribute("id", "h" + ii);
+    cell9.setAttribute("id", "i" + ii);
+    cell10.setAttribute("id", "j" + ii);
+    cell11.setAttribute("id", "k" + ii);
+    cell12.setAttribute("id", "l" + ii);
+    cell13.setAttribute("id", "m" + ii);
+    cell14.setAttribute("id", "n" + ii);
+    cell15.setAttribute("id", "o" + ii);
+    cell16.setAttribute("id", "p" + ii);
+    cell17.setAttribute("id", "q" + ii);
+    cell18.setAttribute("id", "r" + ii);
+    cell19.setAttribute("id", "s" + ii);
+    cell20.setAttribute("id", "t" + ii);
+    cell21.setAttribute("id", "u" + ii);
+    cell22.setAttribute("id", "v" + ii);
+    cell23.setAttribute("id", "w" + ii);
   }
-  for (var i = 0; i < wall.length; i++) {
-    sheet.addRule("." + wall[i], "background: grey;", 0);
+  // l12 = middle cell
+  for (var i = 0; i < 23; i++) {
+    ii = i + 1;
+    var cy = 11 - i + y;
+    xa = x - 11;
+    xb = x - 10;
+    xc = x - 9;
+    xd = x - 8;
+    xe = x - 7;
+    xf = x - 6;
+    xg = x - 5;
+    xh = x - 4;
+    xi = x - 3;
+    xj = x - 2;
+    xk = x - 1;
+    xm = x + 1;
+    xn = x + 2;
+    xo = x + 3;
+    xp = x + 4;
+    xq = x + 5;
+    xr = x + 6;
+    xs = x + 7;
+    xt = x + 8;
+    xu = x + 9;
+    xv = x + 10;
+    xw = x + 11;
+    document.getElementById('a' + ii).setAttribute("class", "x" + xa + "y" + cy);
+    document.getElementById('b' + ii).setAttribute("class", "x" + xb + "y" + cy);
+    document.getElementById('c' + ii).setAttribute("class", "x" + xc + "y" + cy);
+    document.getElementById('d' + ii).setAttribute("class", "x" + xd + "y" + cy);
+    document.getElementById('e' + ii).setAttribute("class", "x" + xe + "y" + cy);
+    document.getElementById('f' + ii).setAttribute("class", "x" + xf + "y" + cy);
+    document.getElementById('g' + ii).setAttribute("class", "x" + xg + "y" + cy);
+    document.getElementById('h' + ii).setAttribute("class", "x" + xh + "y" + cy);
+    document.getElementById('i' + ii).setAttribute("class", "x" + xi + "y" + cy);
+    document.getElementById('j' + ii).setAttribute("class", "x" + xj + "y" + cy);
+    document.getElementById('k' + ii).setAttribute("class", "x" + xk + "y" + cy);
+    document.getElementById('l' + ii).setAttribute("class", "x" + x + "y" + cy);
+    document.getElementById('m' + ii).setAttribute("class", "x" + xm + "y" + cy);
+    document.getElementById('n' + ii).setAttribute("class", "x" + xn + "y" + cy);
+    document.getElementById('o' + ii).setAttribute("class", "x" + xo + "y" + cy);
+    document.getElementById('p' + ii).setAttribute("class", "x" + xp + "y" + cy);
+    document.getElementById('q' + ii).setAttribute("class", "x" + xq + "y" + cy);
+    document.getElementById('r' + ii).setAttribute("class", "x" + xr + "y" + cy);
+    document.getElementById('s' + ii).setAttribute("class", "x" + xs + "y" + cy);
+    document.getElementById('t' + ii).setAttribute("class", "x" + xt + "y" + cy);
+    document.getElementById('u' + ii).setAttribute("class", "x" + xu + "y" + cy);
+    document.getElementById('v' + ii).setAttribute("class", "x" + xv + "y" + cy);
+    document.getElementById('w' + ii).setAttribute("class", "x" + xw + "y" + cy);
   }
+  document.getElementById("l12").style.backgroundColor = 'white';
+}
 
-  localStorage.setItem("wall", JSON.stringify(wall));
-
-  document.getElementById("body").onload = function grid() {
-    for (var i = 0; i < 23; i++) {
-      var ii = i + 1;
-      var table = document.getElementById("grid");
-
-      var row = table.insertRow(-1);
-
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-      var cell3 = row.insertCell(2);
-      var cell4 = row.insertCell(3);
-      var cell5 = row.insertCell(4);
-      var cell6 = row.insertCell(5);
-      var cell7 = row.insertCell(6);
-      var cell8 = row.insertCell(7);
-      var cell9 = row.insertCell(8);
-      var cell10 = row.insertCell(9);
-      var cell11 = row.insertCell(10);
-      var cell12 = row.insertCell(11);
-      var cell13 = row.insertCell(12);
-      var cell14 = row.insertCell(13);
-      var cell15 = row.insertCell(14);
-      var cell16 = row.insertCell(15);
-      var cell17 = row.insertCell(16);
-      var cell18 = row.insertCell(17);
-      var cell19 = row.insertCell(18);
-      var cell20 = row.insertCell(19);
-      var cell21 = row.insertCell(20);
-      var cell22 = row.insertCell(21);
-      var cell23 = row.insertCell(22);
-
-      cell1.setAttribute("id", "a" + ii);
-      cell2.setAttribute("id", "b" + ii);
-      cell3.setAttribute("id", "c" + ii);
-      cell4.setAttribute("id", "d" + ii);
-      cell5.setAttribute("id", "e" + ii);
-      cell6.setAttribute("id", "f" + ii);
-      cell7.setAttribute("id", "g" + ii);
-      cell8.setAttribute("id", "h" + ii);
-      cell9.setAttribute("id", "i" + ii);
-      cell10.setAttribute("id", "j" + ii);
-      cell11.setAttribute("id", "k" + ii);
-      cell12.setAttribute("id", "l" + ii);
-      cell13.setAttribute("id", "m" + ii);
-      cell14.setAttribute("id", "n" + ii);
-      cell15.setAttribute("id", "o" + ii);
-      cell16.setAttribute("id", "p" + ii);
-      cell17.setAttribute("id", "q" + ii);
-      cell18.setAttribute("id", "r" + ii);
-      cell19.setAttribute("id", "s" + ii);
-      cell20.setAttribute("id", "t" + ii);
-      cell21.setAttribute("id", "u" + ii);
-      cell22.setAttribute("id", "v" + ii);
-      cell23.setAttribute("id", "w" + ii);
+document.getElementById("body").onkeypress = function move(event) {
+  var key = event.which || event.keyCode;
+  //  console.log(key);
+  if (key == 119) {
+    var n = y + 1;
+    var up = "x" + x + "y" + n;
+    var f = window.getComputedStyle(document.getElementsByClassName(up)[0]).getPropertyValue('background-Color');
+    if (f !== "rgb(0, 128, 0)" && f !== "rgb(128, 128, 128)") {
+      y++
+      localStorage.setItem("x", x);
+      localStorage.setItem("y", y);
     }
-    // l12 = middle cell
-    for (var i = 0; i < 23; i++) {
-      ii = i + 1;
-      var cy = 11 - i + y;
-      xa = x - 11;
-      xb = x - 10;
-      xc = x - 9;
-      xd = x - 8;
-      xe = x - 7;
-      xf = x - 6;
-      xg = x - 5;
-      xh = x - 4;
-      xi = x - 3;
-      xj = x - 2;
-      xk = x - 1;
-      xm = x + 1;
-      xn = x + 2;
-      xo = x + 3;
-      xp = x + 4;
-      xq = x + 5;
-      xr = x + 6;
-      xs = x + 7;
-      xt = x + 8;
-      xu = x + 9;
-      xv = x + 10;
-      xw = x + 11;
-      document.getElementById('a' + ii).setAttribute("class", "x" + xa + "y" + cy);
-      document.getElementById('b' + ii).setAttribute("class", "x" + xb + "y" + cy);
-      document.getElementById('c' + ii).setAttribute("class", "x" + xc + "y" + cy);
-      document.getElementById('d' + ii).setAttribute("class", "x" + xd + "y" + cy);
-      document.getElementById('e' + ii).setAttribute("class", "x" + xe + "y" + cy);
-      document.getElementById('f' + ii).setAttribute("class", "x" + xf + "y" + cy);
-      document.getElementById('g' + ii).setAttribute("class", "x" + xg + "y" + cy);
-      document.getElementById('h' + ii).setAttribute("class", "x" + xh + "y" + cy);
-      document.getElementById('i' + ii).setAttribute("class", "x" + xi + "y" + cy);
-      document.getElementById('j' + ii).setAttribute("class", "x" + xj + "y" + cy);
-      document.getElementById('k' + ii).setAttribute("class", "x" + xk + "y" + cy);
-      document.getElementById('l' + ii).setAttribute("class", "x" + x + "y" + cy);
-      document.getElementById('m' + ii).setAttribute("class", "x" + xm + "y" + cy);
-      document.getElementById('n' + ii).setAttribute("class", "x" + xn + "y" + cy);
-      document.getElementById('o' + ii).setAttribute("class", "x" + xo + "y" + cy);
-      document.getElementById('p' + ii).setAttribute("class", "x" + xp + "y" + cy);
-      document.getElementById('q' + ii).setAttribute("class", "x" + xq + "y" + cy);
-      document.getElementById('r' + ii).setAttribute("class", "x" + xr + "y" + cy);
-      document.getElementById('s' + ii).setAttribute("class", "x" + xs + "y" + cy);
-      document.getElementById('t' + ii).setAttribute("class", "x" + xt + "y" + cy);
-      document.getElementById('u' + ii).setAttribute("class", "x" + xu + "y" + cy);
-      document.getElementById('v' + ii).setAttribute("class", "x" + xv + "y" + cy);
-      document.getElementById('w' + ii).setAttribute("class", "x" + xw + "y" + cy);
-    }
-    document.getElementById("l12").style.backgroundColor = 'white';
   }
-
-  document.getElementById("body").onkeypress = function move(event) {
-    var key = event.which || event.keyCode;
-    //  console.log(key);
-    if (key == 119) {
-      var n = y + 1;
-      var up = "x" + x + "y" + n;
-      var f = window.getComputedStyle(document.getElementsByClassName(up)[0]).getPropertyValue('background-Color');
-      if (f !== "rgb(0, 128, 0)" && f !== "rgb(128, 128, 128)") {
-        y++
-        localStorage.setItem("x", x);
-        localStorage.setItem("y", y);
-      }
+  if (key == 100) {
+    var n = x + 1;
+    var right = "x" + n + "y" + y;
+    var f = window.getComputedStyle(document.getElementsByClassName(right)[0]).getPropertyValue('background-Color');
+    if (f !== "rgb(0, 128, 0)" && f !== "rgb(128, 128, 128)") {
+      x++
+      localStorage.setItem("x", x);
+      localStorage.setItem("y", y);
     }
-    if (key == 100) {
-      var n = x + 1;
-      var right = "x" + n + "y" + y;
-      var f = window.getComputedStyle(document.getElementsByClassName(right)[0]).getPropertyValue('background-Color');
-      if (f !== "rgb(0, 128, 0)" && f !== "rgb(128, 128, 128)") {
-        x++
-        localStorage.setItem("x", x);
-        localStorage.setItem("y", y);
-      }
-    }
-    if (key == 97) {
-      var n = x - 1;
-      var left = "x" + n + "y" + y;
-      var f = window.getComputedStyle(document.getElementsByClassName(left)[0]).getPropertyValue('background-Color');
-      if (f !== "rgb(0, 128, 0)" && f !== "rgb(128, 128, 128)") {
-        x--
-        localStorage.setItem("x", x);
-        localStorage.setItem("y", y);
-      }
-    }
-    if (key == 115) {
-      var n = y - 1;
-      var down = "x" + x + "y" + n;
-      var f = window.getComputedStyle(document.getElementsByClassName(down)[0]).getPropertyValue('background-Color');
-      if (f !== "rgb(0, 128, 0)" && f !== "rgb(128, 128, 128)") {
-        y--
-        localStorage.setItem("x", x);
-        localStorage.setItem("y", y);
-      }
-    }
-    for (var i = 0; i < 23; i++) {
-      ii = i + 1;
-      var cy = 11 - i + y;
-      xa = x - 11;
-      xb = x - 10;
-      xc = x - 9;
-      xd = x - 8;
-      xe = x - 7;
-      xf = x - 6;
-      xg = x - 5;
-      xh = x - 4;
-      xi = x - 3;
-      xj = x - 2;
-      xk = x - 1;
-      xm = x + 1;
-      xn = x + 2;
-      xo = x + 3;
-      xp = x + 4;
-      xq = x + 5;
-      xr = x + 6;
-      xs = x + 7;
-      xt = x + 8;
-      xu = x + 9;
-      xv = x + 10;
-      xw = x + 11;
-      document.getElementById('a' + ii).setAttribute("class", "x" + xa + "y" + cy);
-      document.getElementById('b' + ii).setAttribute("class", "x" + xb + "y" + cy);
-      document.getElementById('c' + ii).setAttribute("class", "x" + xc + "y" + cy);
-      document.getElementById('d' + ii).setAttribute("class", "x" + xd + "y" + cy);
-      document.getElementById('e' + ii).setAttribute("class", "x" + xe + "y" + cy);
-      document.getElementById('f' + ii).setAttribute("class", "x" + xf + "y" + cy);
-      document.getElementById('g' + ii).setAttribute("class", "x" + xg + "y" + cy);
-      document.getElementById('h' + ii).setAttribute("class", "x" + xh + "y" + cy);
-      document.getElementById('i' + ii).setAttribute("class", "x" + xi + "y" + cy);
-      document.getElementById('j' + ii).setAttribute("class", "x" + xj + "y" + cy);
-      document.getElementById('k' + ii).setAttribute("class", "x" + xk + "y" + cy);
-      document.getElementById('l' + ii).setAttribute("class", "x" + x + "y" + cy);
-      document.getElementById('m' + ii).setAttribute("class", "x" + xm + "y" + cy);
-      document.getElementById('n' + ii).setAttribute("class", "x" + xn + "y" + cy);
-      document.getElementById('o' + ii).setAttribute("class", "x" + xo + "y" + cy);
-      document.getElementById('p' + ii).setAttribute("class", "x" + xp + "y" + cy);
-      document.getElementById('q' + ii).setAttribute("class", "x" + xq + "y" + cy);
-      document.getElementById('r' + ii).setAttribute("class", "x" + xr + "y" + cy);
-      document.getElementById('s' + ii).setAttribute("class", "x" + xs + "y" + cy);
-      document.getElementById('t' + ii).setAttribute("class", "x" + xt + "y" + cy);
-      document.getElementById('u' + ii).setAttribute("class", "x" + xu + "y" + cy);
-      document.getElementById('v' + ii).setAttribute("class", "x" + xv + "y" + cy);
-      document.getElementById('w' + ii).setAttribute("class", "x" + xw + "y" + cy);
-    }
-    document.getElementById("l12").style.backgroundColor = 'white';
   }
-
-  function cleargame() {
-    localStorage.clear();
-    location.reload();
+  if (key == 97) {
+    var n = x - 1;
+    var left = "x" + n + "y" + y;
+    var f = window.getComputedStyle(document.getElementsByClassName(left)[0]).getPropertyValue('background-Color');
+    if (f !== "rgb(0, 128, 0)" && f !== "rgb(128, 128, 128)") {
+      x--
+      localStorage.setItem("x", x);
+      localStorage.setItem("y", y);
+    }
   }
+  if (key == 115) {
+    var n = y - 1;
+    var down = "x" + x + "y" + n;
+    var f = window.getComputedStyle(document.getElementsByClassName(down)[0]).getPropertyValue('background-Color');
+    if (f !== "rgb(0, 128, 0)" && f !== "rgb(128, 128, 128)") {
+      y--
+      localStorage.setItem("x", x);
+      localStorage.setItem("y", y);
+    }
+  }
+  for (var i = 0; i < 23; i++) {
+    ii = i + 1;
+    var cy = 11 - i + y;
+    xa = x - 11;
+    xb = x - 10;
+    xc = x - 9;
+    xd = x - 8;
+    xe = x - 7;
+    xf = x - 6;
+    xg = x - 5;
+    xh = x - 4;
+    xi = x - 3;
+    xj = x - 2;
+    xk = x - 1;
+    xm = x + 1;
+    xn = x + 2;
+    xo = x + 3;
+    xp = x + 4;
+    xq = x + 5;
+    xr = x + 6;
+    xs = x + 7;
+    xt = x + 8;
+    xu = x + 9;
+    xv = x + 10;
+    xw = x + 11;
+    document.getElementById('a' + ii).setAttribute("class", "x" + xa + "y" + cy);
+    document.getElementById('b' + ii).setAttribute("class", "x" + xb + "y" + cy);
+    document.getElementById('c' + ii).setAttribute("class", "x" + xc + "y" + cy);
+    document.getElementById('d' + ii).setAttribute("class", "x" + xd + "y" + cy);
+    document.getElementById('e' + ii).setAttribute("class", "x" + xe + "y" + cy);
+    document.getElementById('f' + ii).setAttribute("class", "x" + xf + "y" + cy);
+    document.getElementById('g' + ii).setAttribute("class", "x" + xg + "y" + cy);
+    document.getElementById('h' + ii).setAttribute("class", "x" + xh + "y" + cy);
+    document.getElementById('i' + ii).setAttribute("class", "x" + xi + "y" + cy);
+    document.getElementById('j' + ii).setAttribute("class", "x" + xj + "y" + cy);
+    document.getElementById('k' + ii).setAttribute("class", "x" + xk + "y" + cy);
+    document.getElementById('l' + ii).setAttribute("class", "x" + x + "y" + cy);
+    document.getElementById('m' + ii).setAttribute("class", "x" + xm + "y" + cy);
+    document.getElementById('n' + ii).setAttribute("class", "x" + xn + "y" + cy);
+    document.getElementById('o' + ii).setAttribute("class", "x" + xo + "y" + cy);
+    document.getElementById('p' + ii).setAttribute("class", "x" + xp + "y" + cy);
+    document.getElementById('q' + ii).setAttribute("class", "x" + xq + "y" + cy);
+    document.getElementById('r' + ii).setAttribute("class", "x" + xr + "y" + cy);
+    document.getElementById('s' + ii).setAttribute("class", "x" + xs + "y" + cy);
+    document.getElementById('t' + ii).setAttribute("class", "x" + xt + "y" + cy);
+    document.getElementById('u' + ii).setAttribute("class", "x" + xu + "y" + cy);
+    document.getElementById('v' + ii).setAttribute("class", "x" + xv + "y" + cy);
+    document.getElementById('w' + ii).setAttribute("class", "x" + xw + "y" + cy);
+  }
+  document.getElementById("l12").style.backgroundColor = 'white';
+}
+
+function cleargame() {
+  localStorage.clear();
+  location.reload();
+}
