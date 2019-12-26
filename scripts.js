@@ -88,13 +88,31 @@ if (localStorage.getItem("wall") == null) {
   counterx = 0;
   countery = 0;
   for (var i = 0; i < 10; i++) {
-    counterx = counterx + 17;
+    counterx = counterx + 16;
     countery = 0;
     centerrightx[centerrightx.length] = counterx;
     centerrighty[centerrighty.length] = countery;
-
   }
-
+  for (var i = 0; i < centerrightx.length; i++) {
+    wallx = centerrightx[i] - 8;
+    wally = centerrighty[i] + 8;
+    for (var p = 0; p < 16; p++) {
+      wallx++
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var p = 0; p < 16; p++) {
+      wally--
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var p = 0; p < 16; p++) {
+      wallx--
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var p = 0; p < 16; p++) {
+      wally++
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+  }
 
 
 }
