@@ -3,7 +3,8 @@ if (localStorage.getItem("y") == null) {
   localStorage.setItem("y", 0);
   var wall = [];
   var floor = [];
-  var center = [];
+  var centerx = [];
+  var centery = [];
   var centerrightx = [];
   var centerrighty = [];
   var centerupx = [];
@@ -85,32 +86,36 @@ if (localStorage.getItem("wall") == null) {
   floory = floory + 2;
   floor[floor.length] = "x" + floorx + "y" + floory;
 
-  counterx = 0;
-  countery = 0;
+  counterx = -160;
+  countery = 160;
   for (var i = 0; i < 10; i++) {
-    counterx = counterx + 16;
-    countery = 0;
-    centerrightx[centerrightx.length] = counterx;
-    centerrighty[centerrighty.length] = countery;
+    for (var p = 0; p < 20; p++) {
+      counterx = counterx + 16;
+      centerx[centerx.length] = counterx;
+      centery[centery.length] = countery;
+    }
+    countery = countery - 16;
+    for (var p = 0; p < 20; p++) {
+      centerx[centerx.length] = counterx;
+      centery[centery.length] = countery;
+      counterx = counterx - 16;
+    }
+    countery = countery - 16;
   }
-  for (var i = 0; i < centerrightx.length; i++) {
-    wallx = centerrightx[i] - 8;
-    wally = centerrighty[i] + 8;
-    for (var p = 0; p < 16; p++) {
-      wallx++
-      wall[wall.length] = "x" + wallx + "y" + wally;
+  for (var i = 0; i < centerx.length; i++) {
+    var room = Math.floor(Math.random() * 4)
+    console.log(room);
+    if (centerx[i] == 0 && centery[i] == 0) {
+      emptyroom();
+    } else if (room == 0) {
+      room1();
+    } else if (room == 1) {
+      room2();
+    } else if (room == 2) {
+      room3();
     }
-    for (var p = 0; p < 16; p++) {
-      wally--
-      wall[wall.length] = "x" + wallx + "y" + wally;
-    }
-    for (var p = 0; p < 16; p++) {
-      wallx--
-      wall[wall.length] = "x" + wallx + "y" + wally;
-    }
-    for (var p = 0; p < 16; p++) {
-      wally++
-      wall[wall.length] = "x" + wallx + "y" + wally;
+    else if (room == 3) {
+      room4();
     }
   }
 
@@ -331,4 +336,421 @@ document.getElementById("body").onkeypress = function move(event) {
 function cleargame() {
   localStorage.clear();
   location.reload();
+}
+
+function emptyroom() {
+  wallx = centerx[i] - 8;
+  wally = centery[i] + 8;
+  for (var p = 0; p < 16; p++) {
+    wallx++
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 16; p++) {
+    wally--
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 16; p++) {
+    wallx--
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 16; p++) {
+    wally++
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  floorx = centerx[i];
+  floory = centery[i] + 8;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx = floorx + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i];
+  floory = centery[i] - 8;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx = floorx + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i] - 8;
+  floory = centery[i];
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory = floory + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i] + 8;
+  floory = centery[i];
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory = floory + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+}
+
+function room1() {
+  wallx = centerx[i] - 2;
+  wally = centery[i] + 8;
+  for (var p = 0; p < 6; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wally--
+  }
+  for (var p = 0; p < 7; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wallx--
+  }
+  wallx = centerx[i] + 2;
+  wally = centery[i] + 8;
+  for (var p = 0; p < 6; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wally--
+  }
+  for (var p = 0; p < 7; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wallx++
+  }
+  wallx = centerx[i] - 8;
+  wally = centery[i] - 2;
+  for (var p = 0; p < 6; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wallx++
+  }
+  for (var p = 0; p < 7; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wally--
+  }
+  wallx = centerx[i] + 8;
+  wally = centery[i] - 2;
+  for (var p = 0; p < 6; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wallx--
+  }
+  for (var p = 0; p < 7; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wally--
+  }
+  floorx = centerx[i];
+  floory = centery[i] + 8;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx = floorx + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i];
+  floory = centery[i] - 8;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx = floorx + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i] - 8;
+  floory = centery[i];
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory = floory + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i] + 8;
+  floory = centery[i];
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory = floory + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+}
+
+function room2() {
+  wallx = centerx[i] - 8;
+  wally = centery[i] + 8;
+  for (var p = 0; p < 16; p++) {
+    wallx++
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 16; p++) {
+    wally--
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 16; p++) {
+    wallx--
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 16; p++) {
+    wally++
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+
+  wallx = centerx[i] - 2;
+  wally = centery[i] + 8;
+  for (var p = 0; p < 6; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wally--
+  }
+  for (var p = 0; p < 7; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wallx--
+  }
+  wallx = centerx[i] + 2;
+  wally = centery[i] + 8;
+  for (var p = 0; p < 6; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wally--
+  }
+  for (var p = 0; p < 7; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wallx++
+  }
+  wallx = centerx[i] - 8;
+  wally = centery[i] - 2;
+  for (var p = 0; p < 6; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wallx++
+  }
+  for (var p = 0; p < 7; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wally--
+  }
+  wallx = centerx[i] + 8;
+  wally = centery[i] - 2;
+  for (var p = 0; p < 6; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wallx--
+  }
+  for (var p = 0; p < 7; p++) {
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    wally--
+  }
+  floorx = centerx[i];
+  floory = centery[i] + 8;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx = floorx + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i];
+  floory = centery[i] - 8;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx = floorx + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i] - 8;
+  floory = centery[i];
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory = floory + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i] + 8;
+  floory = centery[i];
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory = floory + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i] - 2;
+  floory = centery[i] + 5;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i] + 5;
+  floory = centery[i] + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx++
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i] - 5;
+  floory = centery[i] - 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx++
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i] + 2;
+  floory = centery[i] - 5;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+}
+
+function room3() {
+  wallx = centerx[i] - 8;
+  wally = centery[i] + 8;
+  for (var p = 0; p < 16; p++) {
+    wallx++
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 16; p++) {
+    wally--
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 16; p++) {
+    wallx--
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 16; p++) {
+    wally++
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  wallx = centerx[i] - 2;
+  wally = centery[i] + 7;
+  wall[wall.length] = "x" + wallx + "y" + wally;
+  wallx = centerx[i] - 2;
+  wally = centery[i] + 4;
+  wall[wall.length] = "x" + wallx + "y" + wally;
+  wallx = centerx[i] - 7;
+  wally = centery[i] + 3;
+  wall[wall.length] = "x" + wallx + "y" + wally;
+  wallx = centerx[i] - 4;
+  wally = centery[i] + 3;
+  wall[wall.length] = "x" + wallx + "y" + wally;
+  for (var p = 0; p < 8; p++) {
+    wallx++
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 4; p++) {
+    wally--
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  wallx = centerx[i] - 2;
+  wally = centery[i] - 7;
+  wall[wall.length] = "x" + wallx + "y" + wally;
+  wallx = centerx[i] - 2;
+  wally = centery[i] - 6;
+  wall[wall.length] = "x" + wallx + "y" + wally;
+  wallx = centerx[i] - 2;
+  wally = centery[i] - 3;
+  wall[wall.length] = "x" + wallx + "y" + wally;
+  wallx = centerx[i] - 2;
+  wally = centery[i] - 2;
+  wall[wall.length] = "x" + wallx + "y" + wally;
+  for (var p = 0; p < 9; p++) {
+    wallx++
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  floorx = centerx[i];
+  floory = centery[i] + 8;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx = floorx + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i];
+  floory = centery[i] - 8;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx = floorx + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i] - 8;
+  floory = centery[i];
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory = floory + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i] + 8;
+  floory = centery[i];
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory = floory + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+}
+
+function room4() {
+  wallx = centerx[i] - 8;
+  wally = centery[i] + 8;
+  for (var p = 0; p < 16; p++) {
+    wallx++
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 16; p++) {
+    wally--
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 16; p++) {
+    wallx--
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 16; p++) {
+    wally++
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  wallx = centerx[i] - 2;
+  wally = centery[i] + 7;
+  wall[wall.length] = "x" + wallx + "y" + wally;
+  for (var p = 0; p < 5; p++) {
+    wally--
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  wallx = centerx[i] - 5;
+  wally = centery[i] + 2;
+  wall[wall.length] = "x" + wallx + "y" + wally;
+  for (var p = 0; p < 7; p++) {
+    wally--
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 10; p++) {
+    wallx++
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  for (var p = 0; p < 8; p++) {
+    wally++
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  wallx--
+  wall[wall.length] = "x" + wallx + "y" + wally;
+  wally++
+  wall[wall.length] = "x" + wallx + "y" + wally;
+  wallx--
+  wall[wall.length] = "x" + wallx + "y" + wally;
+  wallx--
+  wall[wall.length] = "x" + wallx + "y" + wally;
+  for (var p = 0; p < 3; p++) {
+    wally++
+    wall[wall.length] = "x" + wallx + "y" + wally;
+  }
+  floorx = centerx[i];
+  floory = centery[i] + 8;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx = floorx + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i];
+  floory = centery[i] - 8;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floorx = floorx + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i] - 8;
+  floory = centery[i];
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory = floory + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
+
+  floorx = centerx[i] + 8;
+  floory = centery[i];
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory--
+  floor[floor.length] = "x" + floorx + "y" + floory;
+  floory = floory + 2;
+  floor[floor.length] = "x" + floorx + "y" + floory;
 }
