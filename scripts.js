@@ -93,13 +93,13 @@ if (localStorage.getItem("wall") == null) {
     centerx[centerx.length] = centerx;
     centery[centery.length] = centery;
   }
+}
   for (var i = 0; i < floor.length; i++) {
     sheet.addRule("." + floor[i], "background: black;", 0);
   }
   for (var i = 0; i < wall.length; i++) {
     sheet.addRule("." + wall[i], "background: grey;", 0);
   }
-
 
   localStorage.setItem("wall", JSON.stringify(wall));
 
