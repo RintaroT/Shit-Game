@@ -1,9 +1,13 @@
+
+
+
 if (localStorage.getItem("y") == null) {
   localStorage.setItem("x", 0);
   localStorage.setItem("y", 0);
+  var tree = [];
   var wall = [];
-  var floor = [];
 } else {
+  var tree = JSON.parse(localStorage.getItem("tree"));
   var wall = JSON.parse(localStorage.getItem("wall"));
 }
 var x = Number(localStorage.getItem("x"));
@@ -24,70 +28,183 @@ document.getElementById("body").onload = sheet;
 sheet.addRule("#l12", "background: white;", 0);
 //sheet.addRule(".x-3y4", "background: #008751;", 0);
 
-if (localStorage.getItem("wall") == null) {
-  //Math.floor(Math.random() * 10)
-  wallx = x - 8;
-  wally = y + 8;
-  for (var i = 0; i < 16; i++) {
-    wallx++
-    wall[wall.length] =  "x" + wallx + "y" + wally;
+if (localStorage.getItem("tree") == null) {
+  for (var i = 0; i < 500; i++) {
+    var treex = Math.round(Math.random() * 500);
+    var treey = Math.round(Math.random() * 500);
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treex++;
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treex--;
+    treex--;
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treex++;
+    treey++;
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treey--;
+    treey--;
+    tree[tree.length] = "x" + treex + "y" + treey;
+
+    var treex = Math.round(Math.random() * -500);
+    var treey = Math.round(Math.random() * 500);
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treex++;
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treex--;
+    treex--;
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treex++;
+    treey++;
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treey--;
+    treey--;
+    tree[tree.length] = "x" + treex + "y" + treey;
+
+    var treex = Math.round(Math.random() * 500);
+    var treey = Math.round(Math.random() * -500);
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treex++;
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treex--;
+    treex--;
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treex++;
+    treey++;
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treey--;
+    treey--;
+    tree[tree.length] = "x" + treex + "y" + treey;
+
+    var treex = Math.round(Math.random() * -500);
+    var treey = Math.round(Math.random() * -500);
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treex++;
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treex--;
+    treex--;
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treex++;
+    treey++;
+    tree[tree.length] = "x" + treex + "y" + treey;
+    treey--;
+    treey--;
+    tree[tree.length] = "x" + treex + "y" + treey;
   }
-  for (var i = 0; i < 16; i++) {
-    wally--
-    wall[wall.length] =  "x" + wallx + "y" + wally;
-  }
-  for (var i = 0; i < 16; i++) {
-    wallx--
-    wall[wall.length] =  "x" + wallx + "y" + wally;
-  }
-  for (var i = 0; i < 16; i++) {
-    wally++
+  for (var i = 0; i < 1; i++) {
+    var wallx = Math.round(Math.random() * 10);
+    var wally = Math.round(Math.random() * 10);
     wall[wall.length] = "x" + wallx + "y" + wally;
+    var walll = Math.round(Math.random() * 30 + 30);
+    var walle = walll / 2 + 3;
+    for (var i = walle; i < walll; i++) {
+      wally = wally - 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = 0; i < walll; i++) {
+      wallx = wallx + 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = 0; i < walll; i++) {
+      wally = wally + 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = 0; i < walll; i++) {
+      wallx = wallx - 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = walle; i < walll; i++) {
+      wally = wally - 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+
+    var wallx = Math.round(Math.random() * -500);
+    var wally = Math.round(Math.random() * 500);
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    var walll = Math.round(Math.random() * 30 + 30);
+    var walle = walll / 2 + 3;
+    for (var i = walle; i < walll; i++) {
+      wally = wally - 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = 0; i < walll; i++) {
+      wallx = wallx + 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = 0; i < walll; i++) {
+      wally = wally + 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = 0; i < walll; i++) {
+      wallx = wallx - 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = walle; i < walll; i++) {
+      wally = wally - 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+
+    var wallx = Math.round(Math.random() * 500);
+    var wally = Math.round(Math.random() * -500);
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    var walll = Math.round(Math.random() * 30 + 30);
+    var walle = walll / 2 + 3;
+    for (var i = walle; i < walll; i++) {
+      wally = wally - 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = 0; i < walll; i++) {
+      wallx = wallx + 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = 0; i < walll; i++) {
+      wally = wally + 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = 0; i < walll; i++) {
+      wallx = wallx - 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = walle; i < walll; i++) {
+      wally = wally - 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+
+    var wallx = Math.round(Math.random() * -500);
+    var wally = Math.round(Math.random() * -500);
+    wall[wall.length] = "x" + wallx + "y" + wally;
+    var walll = Math.round(Math.random() * 30 + 30);
+    var walle = walll / 2 + 3;
+    for (var i = walle; i < walll; i++) {
+      wally = wally - 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = 0; i < walll; i++) {
+      wallx = wallx + 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = 0; i < walll; i++) {
+      wally = wally + 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = 0; i < walll; i++) {
+      wallx = wallx - 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
+    for (var i = walle; i < walll; i++) {
+      wally = wally - 1;
+      wall[wall.length] = "x" + wallx + "y" + wally;
+    }
   }
-  floorx = x;
-  floory = y + 8;
-  floor[floor.length] = "x" + floorx + "y" + floory;
-  floorx--
-  floor[floor.length] = "x" + floorx + "y" + floory;
-  floorx = floorx + 2;
-  floor[floor.length] = "x" + floorx + "y" + floory;
-
-  floorx = x;
-  floory = y - 8;
-  floor[floor.length] = "x" + floorx + "y" + floory;
-  floorx--
-  floor[floor.length] = "x" + floorx + "y" + floory;
-  floorx = floorx + 2;
-  floor[floor.length] = "x" + floorx + "y" + floory;
-
-  floorx = x - 8;
-  floory = y;
-  floor[floor.length] = "x" + floorx + "y" + floory;
-  floory--
-  floor[floor.length] = "x" + floorx + "y" + floory;
-  floory = floory + 2;
-  floor[floor.length] = "x" + floorx + "y" + floory;
-
-  floorx = x + 8;
-  floory = y;
-  floor[floor.length] = "x" + floorx + "y" + floory;
-  floory--
-  floor[floor.length] = "x" + floorx + "y" + floory;
-  floory = floory + 2;
-  floor[floor.length] = "x" + floorx + "y" + floory;
-
-
-}
-for (var i = 0; i < floor.length; i++) {
-  sheet.addRule("." + floor[i], "background: black;", 0);
 }
 for (var i = 0; i < wall.length; i++) {
   sheet.addRule("." + wall[i], "background: grey;", 0);
 }
+for (var i = 0; i < tree.length; i++) {
+  sheet.addRule("." + tree[i], "background: green;", 0);
+}
 
 
-
-
+localStorage.setItem("tree", JSON.stringify(tree));
 localStorage.setItem("wall", JSON.stringify(wall));
 
 document.getElementById("body").onload = function grid() {
