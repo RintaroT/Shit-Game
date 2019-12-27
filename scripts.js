@@ -5,14 +5,7 @@ if (localStorage.getItem("y") == null) {
   var floor = [];
   var centerx = [];
   var centery = [];
-  var centerrightx = [];
-  var centerrighty = [];
-  var centerupx = [];
-  var centerupy = [];
-  var centerdownx = [];
-  var centerdowny = [];
-  var centerleftx = [];
-  var centerlefty = [];
+
 } else {
   var wall = JSON.parse(localStorage.getItem("wall"));
 }
