@@ -12,6 +12,12 @@ var sheet = (function() {
 })();
 
 //var test = document.getElementsByClassName('x0y4').id;
-function ai(){
-  document.getElementById("l8").className += " enemy";
+var ex = 0;
+var ey = 4;
+
+function ai() {
+  var ec = "x" + ex + "y" + ey;
+  document.getElementsByClassName(ec)[0].className += " enemy";
+
+
 }
