@@ -11,47 +11,66 @@ var sheet = (function() {
   return style.sheet;
 })();
 
-//var test = document.getElementsByClassName('x0y4').id;
-var ex = 0;
-var ey = 4;
 
+//for (var i = 0; i < spawnx.length; i++) {
+//      ep[ep.length] = spawnx[i];
+//      et[et.length] = spawny[i];
+//  }
+ep[ep.length] = 4;
+et[et.length] = 0;
 function ai() {
-  var ec = "x" + ex + "y" + ey;
-  document.getElementsByClassName(ec)[0].className += " enemy";
-var dist = Math.sqrt(Math.pow(ex-x, 2) + Math.pow(ey-y, 2));
-var eu = ey + 1;
-var el= ex - 1;
-var ed= ey - 1;
-var er = ex + 1;
 
-var distu = Math.sqrt(Math.pow(ex-x, 2) + Math.pow(eu-y, 2));
-var distl = Math.sqrt(Math.pow(el-x, 2) + Math.pow(ey-y, 2));
-var distd = Math.sqrt(Math.pow(ex-x, 2) + Math.pow(ed-y, 2));
-var distr = Math.sqrt(Math.pow(er-x, 2) + Math.pow(ey-y, 2));
-if (distu < distl && distu < distd && distu < distr){
-  var c = window.getComputedStyle(document.getElementsByClassName("x"+ ex + "y" + eu)[0]).getPropertyValue('background-Color');
-if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)"){
-  ey++
-}
-}
-if (distl < distu && distl < distd && distl < distr){
-  var c = window.getComputedStyle(document.getElementsByClassName("x"+ el + "y" + ey)[0]).getPropertyValue('background-Color');
-  console.log(c);
-  if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)"){
-  ex--
-}
-}
-if (distd < distl && distd < distu && distd < distr){
-  var c = window.getComputedStyle(document.getElementsByClassName("x"+ ex + "y" + ed)[0]).getPropertyValue('background-Color');
-  if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)"){
-  ey--
-}
-}
-if (distr < distl && distr < distd && distr < distu){
-  var c = window.getComputedStyle(document.getElementsByClassName("x"+ er + "y" + ey)[0]).getPropertyValue('background-Color');
-  if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)"){
-  ex++
-}
-}
+  for (var t = 0; t < et.length; t++) {
+    ex = ep[t];
+    ey = et[t];
+    var ec = "x" + ex + "y" + ey;
+    var ech = document.getElementsByClassName(ec)[0];
 
+    if (ech != undefined) {
+      document.getElementsByClassName(ec)[0].className += " enemy";
+      var dist = Math.sqrt(Math.pow(ex - x, 2) + Math.pow(ey - y, 2));
+      var eu = ey + 1;
+      var el = ex - 1;
+      var ed = ey - 1;
+      var er = ex + 1;
+      var dist = Math.sqrt(Math.pow(ex - x, 2) + Math.pow(ey - y, 2));
+      var distu = Math.sqrt(Math.pow(ex - x, 2) + Math.pow(eu - y, 2));
+      var distl = Math.sqrt(Math.pow(el - x, 2) + Math.pow(ey - y, 2));
+      var distd = Math.sqrt(Math.pow(ex - x, 2) + Math.pow(ed - y, 2));
+      var distr = Math.sqrt(Math.pow(er - x, 2) + Math.pow(ey - y, 2));
+      if (6 > dist && dist > 1) {
+        if (distu < distl && distu < distd && distu < distr) {
+          var c = window.getComputedStyle(document.getElementsByClassName("x" + ex + "y" + eu)[0]).getPropertyValue('background-Color');
+          console.log(c);
+          if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)" && c !== "rgb(255, 0, 0)") {
+            ey++
+            et[t] = ey;
+          }
+        }
+        if (distl < distu && distl < distd && distl < distr) {
+          var c = window.getComputedStyle(document.getElementsByClassName("x" + el + "y" + ey)[0]).getPropertyValue('background-Color');
+          console.log(c);
+          if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)" && c !== "rgb(255, 0, 0)") {
+            ex--
+            ep[t] = ex;
+          }
+        }
+        if (distd < distl && distd < distu && distd < distr) {
+          var c = window.getComputedStyle(document.getElementsByClassName("x" + ex + "y" + ed)[0]).getPropertyValue('background-Color');
+          console.log(c);
+          if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)" && c !== "rgb(255, 0, 0)") {
+            ey--
+            et[t] = ey;
+          }
+        }
+        if (distr < distl && distr < distd && distr < distu) {
+          var c = window.getComputedStyle(document.getElementsByClassName("x" + er + "y" + ey)[0]).getPropertyValue('background-Color');
+          if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)" && c !== "rgb(255, 0, 0)") {
+            ex++
+            ep[t] = ex;
+          }
+        }
+      }
+    }
+  }
 }
