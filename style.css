@@ -26,3 +26,6 @@ display: none;
 .enemy{
   background: red !important;
 }
+.notvisible{
+  background: #303030 !important;
+}

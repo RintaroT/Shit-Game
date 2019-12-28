@@ -12,10 +12,10 @@ var sheet = (function() {
 })();
 
 
-//for (var i = 0; i < spawnx.length; i++) {
-//      ep[ep.length] = spawnx[i];
-//      et[et.length] = spawny[i];
-//  }
+for (var i = 0; i < spawnx.length; i++) {
+      ep[ep.length] = spawnx[i];
+      et[et.length] = spawny[i];
+  }
 ep[ep.length] = 4;
 et[et.length] = 0;
 function ai() {
@@ -38,10 +38,9 @@ function ai() {
       var distl = Math.sqrt(Math.pow(el - x, 2) + Math.pow(ey - y, 2));
       var distd = Math.sqrt(Math.pow(ex - x, 2) + Math.pow(ed - y, 2));
       var distr = Math.sqrt(Math.pow(er - x, 2) + Math.pow(ey - y, 2));
-      if (6 > dist && dist > 1) {
+      if (6 > dist && dist > 1 && document.getElementsByClassName("x" + ex + "y" + ey)[0].classList.contains("notvisible") == false) {
         if (distu < distl && distu < distd && distu < distr) {
           var c = window.getComputedStyle(document.getElementsByClassName("x" + ex + "y" + eu)[0]).getPropertyValue('background-Color');
-          console.log(c);
           if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)" && c !== "rgb(255, 0, 0)") {
             ey++
             et[t] = ey;
@@ -49,7 +48,7 @@ function ai() {
         }
         if (distl < distu && distl < distd && distl < distr) {
           var c = window.getComputedStyle(document.getElementsByClassName("x" + el + "y" + ey)[0]).getPropertyValue('background-Color');
-          console.log(c);
+
           if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)" && c !== "rgb(255, 0, 0)") {
             ex--
             ep[t] = ex;
@@ -57,7 +56,7 @@ function ai() {
         }
         if (distd < distl && distd < distu && distd < distr) {
           var c = window.getComputedStyle(document.getElementsByClassName("x" + ex + "y" + ed)[0]).getPropertyValue('background-Color');
-          console.log(c);
+
           if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)" && c !== "rgb(255, 0, 0)") {
             ey--
             et[t] = ey;

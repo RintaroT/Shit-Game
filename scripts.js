@@ -117,7 +117,6 @@ if (localStorage.getItem("wall") == null) {
 
 
 }
-  sheet.addRule(".notvisible", "background: #303030;", 0);
 for (var i = 0; i < floor.length; i++) {
   sheet.addRule("." + floor[i], "background: #303030;", 0);
 }
@@ -234,8 +233,8 @@ document.getElementById("body").onload = function grid() {
 
   }
   document.getElementById("l12").style.backgroundColor = 'white';
+    visioncheck();
   ai();
-  visioncheck();
 }
 
 document.getElementById("body").onkeypress = function move(event) {
@@ -330,8 +329,8 @@ document.getElementById("body").onkeypress = function move(event) {
     document.getElementById('w' + ii).setAttribute("class", "x" + xw + "y" + cy + " notvisible");
 
   }
+    visioncheck();
   ai();
-  visioncheck();
   document.getElementById("l12").style.backgroundColor = 'white';
 }
 
@@ -894,7 +893,7 @@ function visioncheck() {
   vy = y - 2;
   vision[vision.length] = "x" + vx + "y" + vy;
 for (var i = 0; i < vision.length; i++) {
-  if (document.getElementsByClassName(vision[i])[0] != undefined && document.getElementsByClassName(vision[i])[0].classList.contains("visible") == false){
+  if (document.getElementsByClassName(vision[i])[0] != undefined){
     document.getElementsByClassName(vision[i])[0].classList.remove("notvisible");
 }
 }
