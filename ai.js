@@ -13,9 +13,10 @@ var sheet = (function() {
 
 
 for (var i = 0; i < spawnx.length; i++) {
-      ep[ep.length] = spawnx[i];
-      et[et.length] = spawny[i];
-  }
+  ep[ep.length] = spawnx[i];
+  et[et.length] = spawny[i];
+}
+
 function ai() {
 
   for (var t = 0; t < et.length; t++) {
@@ -23,7 +24,7 @@ function ai() {
     ey = et[t];
     var ec = "x" + ex + "y" + ey;
     var ech = document.getElementsByClassName(ec)[0];
-
+if(localStorage.running == 0){
     if (ech != undefined) {
       document.getElementsByClassName(ec)[0].className += " enemy";
       var dist = Math.sqrt(Math.pow(ex - x, 2) + Math.pow(ey - y, 2));
@@ -42,6 +43,7 @@ function ai() {
           if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)" && c !== "rgb(255, 0, 0)") {
             ey++
             et[t] = ey;
+            facing = "up";
           }
         }
         if (distl < distu && distl < distd && distl < distr) {
@@ -50,6 +52,7 @@ function ai() {
           if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)" && c !== "rgb(255, 0, 0)") {
             ex--
             ep[t] = ex;
+            facing = "left";
           }
         }
         if (distd < distl && distd < distu && distd < distr) {
@@ -58,6 +61,7 @@ function ai() {
           if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)" && c !== "rgb(255, 0, 0)") {
             ey--
             et[t] = ey;
+            facing = "down";
           }
         }
         if (distr < distl && distr < distd && distr < distu) {
@@ -65,9 +69,13 @@ function ai() {
           if (c !== "rgb(255, 255, 255)" && c !== "rgb(128, 128, 128)" && c !== "rgb(255, 0, 0)") {
             ex++
             ep[t] = ex;
+            facing = "right";
           }
         }
       }
+
+
     }
+  }
   }
 }
