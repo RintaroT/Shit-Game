@@ -16,8 +16,6 @@ for (var i = 0; i < spawnx.length; i++) {
       ep[ep.length] = spawnx[i];
       et[et.length] = spawny[i];
   }
-ep[ep.length] = 4;
-et[et.length] = 0;
 function ai() {
 
   for (var t = 0; t < et.length; t++) {
