@@ -74,7 +74,47 @@ if(localStorage.running == 0){
         }
       }
 
+      if (dist <= 1) {
+       localStorage.running = 1;
+        if (facing == "up") {
+          mx = ex;
+          my = ey + 1;
+          var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(122, 72, 1, 0.5)";
+          setTimeout(function() {
+            my++
+            document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
+            var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(122, 72, 1, 0.5)";
+          }, 100);
+          setTimeout(function() {
+            document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
+          }, 150);
+          setTimeout(function() {
+          localStorage.running = 0;
+          }, 200);
+        }
+        if (facing == "left") {
 
+        }
+        if (facing == "down") {
+
+        }
+        if (facing == "right") {
+          mx = ex + 1;
+          my = ey;
+          var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(122, 72, 1, 0.5)";
+          setTimeout(function() {
+            mx++
+            document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
+            var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(122, 72, 1, 0.5)";
+          }, 100);
+          setTimeout(function() {
+            document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
+          }, 150);
+          setTimeout(function() {
+          localStorage.running = 0;
+          }, 200);
+        }
+      }
     }
   }
   }
