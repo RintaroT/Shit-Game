@@ -242,6 +242,7 @@ document.getElementById("body").onkeypress = function move(event) {
     var key = event.which || event.keyCode;
     //  console.log(key);
     if (key == 119 || key == 87) {
+      localStorage.running = 1;
       var n = y + 1;
       var up = "x" + x + "y" + n;
       var f = window.getComputedStyle(document.getElementsByClassName(up)[0]).getPropertyValue('background-Color');
@@ -250,8 +251,12 @@ document.getElementById("body").onkeypress = function move(event) {
         localStorage.setItem("x", x);
         localStorage.setItem("y", y);
       }
+      setTimeout(function() {
+        localStorage.running = 0;
+      }, 50);
     }
     if (key == 100 || key == 68) {
+      localStorage.running = 1;
       var n = x + 1;
       var right = "x" + n + "y" + y;
       var f = window.getComputedStyle(document.getElementsByClassName(right)[0]).getPropertyValue('background-Color');
@@ -260,8 +265,12 @@ document.getElementById("body").onkeypress = function move(event) {
         localStorage.setItem("x", x);
         localStorage.setItem("y", y);
       }
+      setTimeout(function() {
+        localStorage.running = 0;
+      }, 50);
     }
     if (key == 97 || key == 65) {
+      localStorage.running = 1;
       var n = x - 1;
       var left = "x" + n + "y" + y;
       var f = window.getComputedStyle(document.getElementsByClassName(left)[0]).getPropertyValue('background-Color');
@@ -270,8 +279,12 @@ document.getElementById("body").onkeypress = function move(event) {
         localStorage.setItem("x", x);
         localStorage.setItem("y", y);
       }
+      setTimeout(function() {
+        localStorage.running = 0;
+      }, 50);
     }
     if (key == 115 || key == 83) {
+      localStorage.running = 1;
       var n = y - 1;
       var down = "x" + x + "y" + n;
       var f = window.getComputedStyle(document.getElementsByClassName(down)[0]).getPropertyValue('background-Color');
@@ -280,7 +293,11 @@ document.getElementById("body").onkeypress = function move(event) {
         localStorage.setItem("x", x);
         localStorage.setItem("y", y);
       }
+      setTimeout(function() {
+        localStorage.running = 0;
+      }, 50);
     }
+      setTimeout(function() {
     for (var i = 0; i < 23; i++) {
       ii = i + 1;
       var cy = 11 - i + y;
@@ -330,12 +347,13 @@ document.getElementById("body").onkeypress = function move(event) {
       document.getElementById('v' + ii).setAttribute("class", "x" + xv + "y" + cy + " notvisible");
       document.getElementById('w' + ii).setAttribute("class", "x" + xw + "y" + cy + " notvisible");
     }
-
     visioncheck();
     ai();
+}, 100);
     if (key == 32) {
       localStorage.running = 1;
       setTimeout(attack(), 300);
+      setTimeout(mapgen(), 850);
     }
   }
   document.getElementById("l12").style.backgroundColor = 'white';
@@ -996,4 +1014,58 @@ function attack() {
     localStorage.setItem("running", 0);
   }, 800);
   setTimeout(function() {}, 850);
+}
+
+function mapgen(){
+for (var i = 0; i < 23; i++) {
+  ii = i + 1;
+  var cy = 11 - i + y;
+  xa = x - 11;
+  xb = x - 10;
+  xc = x - 9;
+  xd = x - 8;
+  xe = x - 7;
+  xf = x - 6;
+  xg = x - 5;
+  xh = x - 4;
+  xi = x - 3;
+  xj = x - 2;
+  xk = x - 1;
+  xm = x + 1;
+  xn = x + 2;
+  xo = x + 3;
+  xp = x + 4;
+  xq = x + 5;
+  xr = x + 6;
+  xs = x + 7;
+  xt = x + 8;
+  xu = x + 9;
+  xv = x + 10;
+  xw = x + 11;
+  document.getElementById('a' + ii).setAttribute("class", "x" + xa + "y" + cy + " notvisible");
+  document.getElementById('b' + ii).setAttribute("class", "x" + xb + "y" + cy + " notvisible");
+  document.getElementById('c' + ii).setAttribute("class", "x" + xc + "y" + cy + " notvisible");
+  document.getElementById('d' + ii).setAttribute("class", "x" + xd + "y" + cy + " notvisible");
+  document.getElementById('e' + ii).setAttribute("class", "x" + xe + "y" + cy + " notvisible");
+  document.getElementById('f' + ii).setAttribute("class", "x" + xf + "y" + cy + " notvisible");
+  document.getElementById('g' + ii).setAttribute("class", "x" + xg + "y" + cy + " notvisible");
+  document.getElementById('h' + ii).setAttribute("class", "x" + xh + "y" + cy + " notvisible");
+  document.getElementById('i' + ii).setAttribute("class", "x" + xi + "y" + cy + " notvisible");
+  document.getElementById('j' + ii).setAttribute("class", "x" + xj + "y" + cy + " notvisible");
+  document.getElementById('k' + ii).setAttribute("class", "x" + xk + "y" + cy + " notvisible");
+  document.getElementById('l' + ii).setAttribute("class", "x" + x + "y" + cy + " notvisible");
+  document.getElementById('m' + ii).setAttribute("class", "x" + xm + "y" + cy + " notvisible");
+  document.getElementById('n' + ii).setAttribute("class", "x" + xn + "y" + cy + " notvisible");
+  document.getElementById('o' + ii).setAttribute("class", "x" + xo + "y" + cy + " notvisible");
+  document.getElementById('p' + ii).setAttribute("class", "x" + xp + "y" + cy + " notvisible");
+  document.getElementById('q' + ii).setAttribute("class", "x" + xq + "y" + cy + " notvisible");
+  document.getElementById('r' + ii).setAttribute("class", "x" + xr + "y" + cy + " notvisible");
+  document.getElementById('s' + ii).setAttribute("class", "x" + xs + "y" + cy + " notvisible");
+  document.getElementById('t' + ii).setAttribute("class", "x" + xt + "y" + cy + " notvisible");
+  document.getElementById('u' + ii).setAttribute("class", "x" + xu + "y" + cy + " notvisible");
+  document.getElementById('v' + ii).setAttribute("class", "x" + xv + "y" + cy + " notvisible");
+  document.getElementById('w' + ii).setAttribute("class", "x" + xw + "y" + cy + " notvisible");
+}
+visioncheck();
+ai();
 }
