@@ -22,10 +22,14 @@ function ai() {
   nex = [];
   ney = [];
   for (var t = 0; t < et.length; t++) {
+    if (ehp[t] <= 0) {
+    ep[t] = "";
+    et[t] = "";
+    }
     ex = ep[t];
     ey = et[t];
+    if (ex != ""){
     var ec = "x" + ex + "y" + ey;
-    if (ehp[t] > 0) {
     var ech = document.getElementsByClassName(ec)[0];
     if (localStorage.running == 0) {
       if (ech != undefined) {
@@ -151,7 +155,6 @@ function ai() {
         }
       }
     }
-  }
   if(localStorage.running == 1){
     nex = [];
     ney = [];
@@ -171,6 +174,7 @@ function ai() {
         }
         }
 
+}
 }
 }
 }

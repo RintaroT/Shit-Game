@@ -972,7 +972,6 @@ function attack() {
   for (var p = 0; p < nex.length; p++) {
   if ("x" + mx + "y" + my == "x" + nex[p] + "y" + ney[p]){
     ehp[net[p]]--
-    console.log(ehp[net[p]]);
   }
   }
   setTimeout(function() {
