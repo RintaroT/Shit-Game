@@ -144,4 +144,15 @@ function ai() {
       }
     }
   }
+  if(localStorage.running == 1){
+    for (var t = 0; t < et.length; t++) {
+      ex = ep[t];
+      ey = et[t];
+      var ec = "x" + ex + "y" + ey;
+          var ech = document.getElementsByClassName(ec)[0];
+          if (ech != undefined){
+                document.getElementsByClassName(ec)[0].className += " enemy";
+        }
+        }
+}
 }
