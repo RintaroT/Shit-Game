@@ -15,14 +15,17 @@ var sheet = (function() {
 for (var i = 0; i < spawnx.length; i++) {
   ep[ep.length] = spawnx[i];
   et[et.length] = spawny[i];
+  ehp[ehp.length] = 3;
 }
 
 function ai() {
-
+  nex = [];
+  ney = [];
   for (var t = 0; t < et.length; t++) {
     ex = ep[t];
     ey = et[t];
     var ec = "x" + ex + "y" + ey;
+    if (ehp[t] > 0) {
     var ech = document.getElementsByClassName(ec)[0];
     if (localStorage.running == 0) {
       if (ech != undefined) {
@@ -37,6 +40,11 @@ function ai() {
         var distl = Math.sqrt(Math.pow(el - x, 2) + Math.pow(ey - y, 2));
         var distd = Math.sqrt(Math.pow(ex - x, 2) + Math.pow(ed - y, 2));
         var distr = Math.sqrt(Math.pow(er - x, 2) + Math.pow(ey - y, 2));
+        if (dist < 3){
+          nex[nex.length] = ex;
+          ney[ney.length] = ey;
+          net[net.length] = t;
+        }
         if (6 > dist && dist > 2 && document.getElementsByClassName("x" + ex + "y" + ey)[0].classList.contains("notvisible") == false) {
           if (distu < distl && distu < distd && distu < distr) {
             var c = window.getComputedStyle(document.getElementsByClassName("x" + ex + "y" + eu)[0]).getPropertyValue('background-Color');
@@ -79,11 +87,11 @@ function ai() {
           if (facing == "up") {
             mx = ex;
             my = ey + 1;
-            var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(122, 72, 1, 0.5)";
+            var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
             setTimeout(function() {
               document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
               my++
-              var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(122, 72, 1, 0.5)";
+              var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
             }, 200);
             setTimeout(function() {
               document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
@@ -95,11 +103,11 @@ function ai() {
           if (facing == "left") {
             mx = ex - 1;
             my = ey;
-            var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(122, 72, 1, 0.5)";
+            var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
             setTimeout(function() {
               document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
               mx--
-              var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(122, 72, 1, 0.5)";
+              var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
             }, 200);
             setTimeout(function() {
               document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
@@ -111,11 +119,11 @@ function ai() {
           if (facing == "down") {
             mx = ex;
             my = ey - 1;
-            var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(122, 72, 1, 0.5)";
+            var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
             setTimeout(function() {
               document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
               my--
-              var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(122, 72, 1, 0.5)";
+              var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
             }, 200);
             setTimeout(function() {
               document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
@@ -127,11 +135,11 @@ function ai() {
           if (facing == "right") {
             mx = ex + 1;
             my = ey;
-            var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(122, 72, 1, 0.5)";
+            var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
             setTimeout(function() {
             document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
               mx++
-              var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(122, 72, 1, 0.5)";
+              var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
             }, 200);
             setTimeout(function() {
               document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
@@ -145,14 +153,24 @@ function ai() {
     }
   }
   if(localStorage.running == 1){
+    nex = [];
+    ney = [];
     for (var t = 0; t < et.length; t++) {
       ex = ep[t];
       ey = et[t];
+  var dist = Math.sqrt(Math.pow(ex - x, 2) + Math.pow(ey - y, 2));
+      if (dist < 3){
+        nex[nex.length] = ex;
+        ney[ney.length] = ey;
+        net[net.length] = t;
+      }
       var ec = "x" + ex + "y" + ey;
           var ech = document.getElementsByClassName(ec)[0];
           if (ech != undefined){
                 document.getElementsByClassName(ec)[0].className += " enemy";
         }
         }
+
+}
 }
 }
