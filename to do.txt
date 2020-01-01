@@ -1,4 +1,1 @@
-Setup 'true' turm based system
-create ai attack animation
-make combat functional
-more variety of ai attacks/moves
+ai disapears on 0hp
