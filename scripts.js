@@ -14,7 +14,7 @@ if (localStorage.getItem("y") == null) {
   var spawny = [];
   var vision = [];
   var net = [];
-  var hp = 10;
+  var hp = 6;
 } else {
   var wall = JSON.parse(localStorage.getItem("wall"));
 }
@@ -237,7 +237,9 @@ document.getElementById("body").onload = function grid() {
     document.getElementById('v' + ii).setAttribute("class", "x" + xv + "y" + cy + " notvisible");
     document.getElementById('w' + ii).setAttribute("class", "x" + xw + "y" + cy + " notvisible");
   }
+
   document.getElementById("l12").style.backgroundColor = 'white';
+    document.getElementById("l12").innerHTML = hp;
   visioncheck();
   ai();
 }
@@ -361,6 +363,7 @@ document.getElementById("body").onkeypress = function move(event) {
     }, 100);
   }
   document.getElementById("l12").style.backgroundColor = 'white';
+  document.getElementById("l12").innerHTML = hp;
 }
 
 function cleargame() {
@@ -969,7 +972,7 @@ function visioncheck() {
 function attack() {
   mx = x
   my = y + 1;
-  var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
+  var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(0, 255, 0, 0.45)";
   for (var p = 0; p < nex.length; p++) {
     if ("x" + mx + "y" + my == "x" + ep[net[p]] + "y" + et[net[p]]) {
       ehp[net[p]]--
@@ -981,10 +984,10 @@ function attack() {
     for (var p = 0; p < nex.length; p++) {
       if ("x" + mx + "y" + my == "x" + ep[net[p]] + "y" + et[net[p]]) {
         ehp[net[p]]--
-        mapgen();
+
       }
     }
-    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
+    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(0, 255, 0, 0.45)";
   }, 100);
   setTimeout(function() {
     document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
@@ -994,8 +997,8 @@ function attack() {
         ehp[net[p]]--
       }
     }
-    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
-  }, 140);
+    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(0, 255, 0, 0.45)";
+  }, 160);
   setTimeout(function() {
     document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
     my--
@@ -1004,8 +1007,8 @@ function attack() {
         ehp[net[p]]--
       }
     }
-    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
-  }, 180);
+    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(0, 255, 0, 0.45)";
+  }, 220);
   setTimeout(function() {
     document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
 
@@ -1015,8 +1018,8 @@ function attack() {
         ehp[net[p]]--
       }
     }
-    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
-  }, 220);
+    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(0, 255, 0, 0.45)";
+  }, 280);
   setTimeout(function() {
     document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
     mx--
@@ -1025,28 +1028,28 @@ function attack() {
         ehp[net[p]]--
       }
     }
-    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
-  }, 260);
-  setTimeout(function() {
-    document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
-    my++
-    for (var p = 0; p < nex.length; p++) {
-      if ("x" + mx + "y" + my == "x" + ep[net[p]] + "y" + et[net[p]]) {
-        ehp[net[p]]--
-      }
-    }
-    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
-  }, 300);
-  setTimeout(function() {
-    document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
-    my++
-    for (var p = 0; p < nex.length; p++) {
-      if ("x" + mx + "y" + my == "x" + ep[net[p]] + "y" + et[net[p]]) {
-        ehp[net[p]]--
-      }
-    }
-    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
+    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(0, 255, 0, 0.45)";
   }, 340);
+  setTimeout(function() {
+    document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
+    my++
+    for (var p = 0; p < nex.length; p++) {
+      if ("x" + mx + "y" + my == "x" + ep[net[p]] + "y" + et[net[p]]) {
+        ehp[net[p]]--
+      }
+    }
+    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(0, 255, 0, 0.45)";
+  }, 400);
+  setTimeout(function() {
+    document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
+    my++
+    for (var p = 0; p < nex.length; p++) {
+      if ("x" + mx + "y" + my == "x" + ep[net[p]] + "y" + et[net[p]]) {
+        ehp[net[p]]--
+      }
+    }
+    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(0, 255, 0, 0.45)";
+  }, 460);
   setTimeout(function() {
     document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
     mx++
@@ -1055,15 +1058,16 @@ function attack() {
         ehp[net[p]]--
       }
     }
-    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(255, 17, 0, 0.5)";
-  }, 380);
+    var v = document.getElementsByClassName("x" + mx + "y" + my)[0].style.backgroundColor = "rgba(0, 255, 0, 0.45)";
+  }, 500);
   setTimeout(function() {
     document.getElementsByClassName("x" + mx + "y" + my)[0].style = "";
     localStorage.running = 0;
     mapgen();
-  }, 400);
-  setTimeout(function() {}, 420);
+  }, 540);
+  setTimeout(function() {}, 600);
 }
+
 function mapgen() {
   for (var i = 0; i < 23; i++) {
     ii = i + 1;
@@ -1116,4 +1120,7 @@ function mapgen() {
   }
   visioncheck();
   ai();
+}
+function lose(){
+document.getElementById("lose").style.display = "block";
 }

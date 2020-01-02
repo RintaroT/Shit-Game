@@ -19,9 +19,24 @@ td{
 }
 #l12{
   background-color: white;
+  text-align: center;
+  font-weight: bold;
 }
-#coorddump{
-display: none;
+#lose{
+  display: none;
+  position: absolute;
+  background: #303030;
+  width: 100%;
+  height: 100%;
+}
+
+#loseh1{
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  background: #303030;
+  color: white;
+  font-size: 200px;
 }
 .enemy{
   background: red;

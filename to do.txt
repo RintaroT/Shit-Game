@@ -1,1 +1,3 @@
-ai disapears on 0hp
+all ai onscreen disapear at one losing hp
+
+ai random disapearing
