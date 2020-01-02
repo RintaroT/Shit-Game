@@ -34,6 +34,9 @@ function ai() {
       if (localStorage.running == 0) {
         if (ech != undefined) {
           document.getElementsByClassName(ec)[0].className += " enemy";
+          if(document.getElementsByClassName(ec)[0].classList.contains("notvisible") != true){
+          document.getElementsByClassName(ec)[0].innerHTML = ehp[t];
+        }
           var dist = Math.sqrt(Math.pow(ex - x, 2) + Math.pow(ey - y, 2));
           var eu = ey + 1;
           var el = ex - 1;

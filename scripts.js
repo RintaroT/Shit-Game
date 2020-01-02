@@ -236,10 +236,35 @@ document.getElementById("body").onload = function grid() {
     document.getElementById('u' + ii).setAttribute("class", "x" + xu + "y" + cy + " notvisible");
     document.getElementById('v' + ii).setAttribute("class", "x" + xv + "y" + cy + " notvisible");
     document.getElementById('w' + ii).setAttribute("class", "x" + xw + "y" + cy + " notvisible");
+    document.getElementById('a' + ii).innerHTML = "";
+    document.getElementById('b' + ii).innerHTML = "";
+    document.getElementById('c' + ii).innerHTML = "";
+    document.getElementById('d' + ii).innerHTML = "";
+    document.getElementById('e' + ii).innerHTML = "";
+    document.getElementById('f' + ii).innerHTML = "";
+    document.getElementById('g' + ii).innerHTML = "";
+    document.getElementById('h' + ii).innerHTML = "";
+    document.getElementById('i' + ii).innerHTML = "";
+    document.getElementById('j' + ii).innerHTML = "";
+    document.getElementById('k' + ii).innerHTML = "";
+    if(ii != 12){
+    document.getElementById('l' + ii).innerHTML = "";
+  }
+    document.getElementById('m' + ii).innerHTML = "";
+    document.getElementById('n' + ii).innerHTML = "";
+    document.getElementById('o' + ii).innerHTML = "";
+    document.getElementById('p' + ii).innerHTML = "";
+    document.getElementById('q' + ii).innerHTML = "";
+    document.getElementById('r' + ii).innerHTML = "";
+    document.getElementById('s' + ii).innerHTML = "";
+    document.getElementById('t' + ii).innerHTML = "";
+    document.getElementById('u' + ii).innerHTML = "";
+    document.getElementById('v' + ii).innerHTML = "";
+    document.getElementById('w' + ii).innerHTML = "";
   }
 
   document.getElementById("l12").style.backgroundColor = 'white';
-    document.getElementById("l12").innerHTML = hp;
+  document.getElementById("l12").innerHTML = hp;
   visioncheck();
   ai();
 }
@@ -357,6 +382,32 @@ document.getElementById("body").onkeypress = function move(event) {
         document.getElementById('u' + ii).setAttribute("class", "x" + xu + "y" + cy + " notvisible");
         document.getElementById('v' + ii).setAttribute("class", "x" + xv + "y" + cy + " notvisible");
         document.getElementById('w' + ii).setAttribute("class", "x" + xw + "y" + cy + " notvisible");
+
+        document.getElementById('a' + ii).innerHTML = "";
+        document.getElementById('b' + ii).innerHTML = "";
+        document.getElementById('c' + ii).innerHTML = "";
+        document.getElementById('d' + ii).innerHTML = "";
+        document.getElementById('e' + ii).innerHTML = "";
+        document.getElementById('f' + ii).innerHTML = "";
+        document.getElementById('g' + ii).innerHTML = "";
+        document.getElementById('h' + ii).innerHTML = "";
+        document.getElementById('i' + ii).innerHTML = "";
+        document.getElementById('j' + ii).innerHTML = "";
+        document.getElementById('k' + ii).innerHTML = "";
+            if(ii != 12){
+        document.getElementById('l' + ii).innerHTML = "";
+      }
+        document.getElementById('m' + ii).innerHTML = "";
+        document.getElementById('n' + ii).innerHTML = "";
+        document.getElementById('o' + ii).innerHTML = "";
+        document.getElementById('p' + ii).innerHTML = "";
+        document.getElementById('q' + ii).innerHTML = "";
+        document.getElementById('r' + ii).innerHTML = "";
+        document.getElementById('s' + ii).innerHTML = "";
+        document.getElementById('t' + ii).innerHTML = "";
+        document.getElementById('u' + ii).innerHTML = "";
+        document.getElementById('v' + ii).innerHTML = "";
+        document.getElementById('w' + ii).innerHTML = "";
       }
       visioncheck();
       ai();
@@ -1122,5 +1173,5 @@ function mapgen() {
   ai();
 }
 function lose(){
-document.getElementById("lose").style.display = "block";
+ cleargame();
 }

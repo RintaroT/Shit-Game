@@ -40,6 +40,8 @@ td{
 }
 .enemy{
   background: red;
+  text-align: center;
+  font-weight: bold;
 }
 .notvisible{
   background: #303030 !important;
