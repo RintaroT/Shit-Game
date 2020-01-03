@@ -879,6 +879,9 @@ function room4() {
 function visioncheck() {
   vx = x;
   vy = y;
+  if(vision.length > 4000){
+    vision = [];
+  }
   vision[vision.length] = "x" + vx + "y" + vy;
   for (var i = 0; i < 5; i++) {
     vy++
