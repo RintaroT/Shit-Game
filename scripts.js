@@ -247,9 +247,9 @@ document.getElementById("body").onload = function grid() {
     document.getElementById('i' + ii).innerHTML = "";
     document.getElementById('j' + ii).innerHTML = "";
     document.getElementById('k' + ii).innerHTML = "";
-    if(ii != 12){
-    document.getElementById('l' + ii).innerHTML = "";
-  }
+    if (ii != 12) {
+      document.getElementById('l' + ii).innerHTML = "";
+    }
     document.getElementById('m' + ii).innerHTML = "";
     document.getElementById('n' + ii).innerHTML = "";
     document.getElementById('o' + ii).innerHTML = "";
@@ -394,9 +394,9 @@ document.getElementById("body").onkeypress = function move(event) {
         document.getElementById('i' + ii).innerHTML = "";
         document.getElementById('j' + ii).innerHTML = "";
         document.getElementById('k' + ii).innerHTML = "";
-            if(ii != 12){
-        document.getElementById('l' + ii).innerHTML = "";
-      }
+        if (ii != 12) {
+          document.getElementById('l' + ii).innerHTML = "";
+        }
         document.getElementById('m' + ii).innerHTML = "";
         document.getElementById('n' + ii).innerHTML = "";
         document.getElementById('o' + ii).innerHTML = "";
@@ -875,11 +875,10 @@ function room4() {
   spawny[spawny.length] = centery[i] - 6;
 }
 
-
 function visioncheck() {
   vx = x;
   vy = y;
-  if(vision.length > 4000){
+  if (vision.length > 4000) {
     vision = [];
   }
   vision[vision.length] = "x" + vx + "y" + vy;
@@ -1175,6 +1174,7 @@ function mapgen() {
   visioncheck();
   ai();
 }
-function lose(){
- cleargame();
+
+function lose() {
+  cleargame();
 }
