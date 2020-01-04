@@ -1,28 +1,33 @@
-body{
+body {
   max-width: 100%;
   overflow: hidden;
   background: #303030;
 }
-table{
-margin-left: 23%;
+
+table {
+  margin-left: 23%;
 }
-td{
+
+td {
   background: #303030;
   padding: 0;
   width: 41px;
   height: 41px;
 }
-#reset{
+
+#reset {
   position: absolute;
   right: 25%;
-  top:20%;
+  top: 20%;
 }
-#l12{
+
+#l12 {
   background-color: white;
   text-align: center;
   font-weight: bold;
 }
-#lose{
+
+#lose {
   display: none;
   position: absolute;
   background: #303030;
@@ -30,7 +35,7 @@ td{
   height: 100%;
 }
 
-#loseh1{
+#loseh1 {
   position: absolute;
   top: 30%;
   left: 30%;
@@ -38,16 +43,13 @@ td{
   color: white;
   font-size: 200px;
 }
-.enemy{
+
+.enemy {
   background: red;
   text-align: center;
   font-weight: bold;
 }
-.notvisible{
+
+.notvisible {
   background: #303030 !important;
-}
-@media (max-width: 425px) {
-  td{
-display: none;
-  }
 }
