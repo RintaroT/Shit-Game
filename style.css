@@ -46,3 +46,8 @@ td{
 .notvisible{
   background: #303030 !important;
 }
+@media (max-width: 425px) {
+  td{
+display: none;
+  }
+}
